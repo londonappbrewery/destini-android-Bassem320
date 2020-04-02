@@ -1,6 +1,6 @@
 package com.londonappbrewery.destini;
 
-public class StoryLine {
+class StoryLine {
     private int storyTextId;
     private int topButtonTextId;
     private int bottomButtonTextId;
