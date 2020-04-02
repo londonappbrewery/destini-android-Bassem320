@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
             new StoryLine(R.string.T1_Story,R.string.T1_Ans1,R.string.T1_Ans2),
             new StoryLine(R.string.T2_Story,R.string.T2_Ans1,R.string.T2_Ans2),
             new StoryLine(R.string.T3_Story,R.string.T3_Ans1,R.string.T3_Ans2),
-            new StoryLine(R.string.T4_End,0,0),
-            new StoryLine(R.string.T5_End,0,0),
-            new StoryLine(R.string.T6_End,0,0),
+            new StoryLine(R.string.T4_End),
+            new StoryLine(R.string.T5_End),
+            new StoryLine(R.string.T6_End),
     };
 
     @Override
@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateStory() {
-        if(mStoryIndex < 4){
-            storyTextView.setText(storyLines[mStoryIndex-1].getStoryTextId());
-            topButton.setText(storyLines[mStoryIndex-1].getTopButtonTextId());
-            bottomButton.setText(storyLines[mStoryIndex-1].getBottomButtonTextId());
-        }else {
+        if(storyLines[mStoryIndex-1].isEnded()){
             storyTextView.setText(storyLines[mStoryIndex-1].getStoryTextId());
             topButton.setVisibility(View.INVISIBLE);
             bottomButton.setVisibility(View.INVISIBLE);
+        }else {
+            storyTextView.setText(storyLines[mStoryIndex-1].getStoryTextId());
+            topButton.setText(storyLines[mStoryIndex-1].getTopButtonTextId());
+            bottomButton.setText(storyLines[mStoryIndex-1].getBottomButtonTextId());
         }
     }
 }
